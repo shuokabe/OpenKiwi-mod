@@ -74,5 +74,4 @@ cd ..
 
 # Move the pre-trained predictor
 mkdir -p runs/predictor
-cd runs/predictor
 cp ../best_model.torch ./runs/predictor/
