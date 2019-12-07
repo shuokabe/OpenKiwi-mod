@@ -26,10 +26,10 @@ mlp-est: True
 # Using the SRC, PE pair and add the `Predictor` loss for the tokens in the
 # postedited text PE. Recommended if you have access to PE
 # Requires setting train-pe, valid-pe
-token-level: True
+token-level: False
 # Predict Sentence Level Scores
 # Requires setting train-sentence-scores, valid-sentence-scores
-sentence-level: False
+sentence-level: True
 # Use probabilistic Loss for sentence scores instead of squared error.
 # If set, the model will output mean and variance of a truncated Gaussian
 # distribution over the interval [0, 1], and use log-likelihood loss instead
@@ -43,7 +43,7 @@ binary-level: False
 # WMT 18 Format Settings #
 
 # Predict target tags. Requires train-target-tags, valid-target-tags to be set.
-predict-target: true
+predict-target: false
 target-bad-weight: 2.5
 # Predict source tags. Requires train-source-tags, valid-source-tags to be set.
 predict-source: false
