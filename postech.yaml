@@ -105,13 +105,13 @@ wmt18-format: false
 train-source: data/train.src #WMT17/word_level/train.src
 train-target: data/train.mt #WMT17/word_level/train.mt
 #train-pe: data/WMT17/word_level/train.pe
-train-target-tags: data/train.mt.wsent-mqm #WMT17/word_level/train.tags
+train-sentence-scores: data/train.mt.wsent-mqm #WMT17/word_level/train.tags
 
 
 valid-source: data/dev.src #WMT17/word_level/dev.src
 valid-target: data/dev.mt #WMT17/word_level/dev.mt
 #valid-pe: data/WMT17/word_level/dev.pe
-valid-target-tags: data/dev.mt.wsent-mqm #WMT17/word_level/dev.tags
+valid-sentence-scores: data/dev.mt.wsent-mqm #WMT17/word_level/dev.tags
 
 
 ### GENERAL OPTS ###
