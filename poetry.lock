@@ -431,7 +431,7 @@ pandas = "*"
 protobuf = ">=3.6.0"
 python-dateutil = "*"
 pyyaml = "*"
-querystring_parser = "*"
+querystring-parser = "*"
 requests = ">=2.17.3"
 scikit-learn = "*"
 scipy = "*"
@@ -599,7 +599,7 @@ setuptools = "*"
 six = ">=1.10.0"
 
 [package.dependencies.more-itertools]
-python = ">2.7"
+python = ">=2.8"
 version = ">=4.0.0"
 
 [package.dependencies.pathlib2]
@@ -630,8 +630,8 @@ category = "main"
 description = "YAML parser and emitter for Python"
 name = "pyyaml"
 optional = false
-python-versions = "*"
-version = "3.13"
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "5.1"
 
 [[package]]
 category = "main"
@@ -711,7 +711,7 @@ category = "main"
 description = "Simple, fast, extensible JSON encoder/decoder for Python"
 name = "simplejson"
 optional = true
-python-versions = "*"
+python-versions = ">=2.5, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "3.16.0"
 
 [[package]]
@@ -893,7 +893,7 @@ mlflow = ["mlflow"]
 plots = ["seaborn"]
 
 [metadata]
-content-hash = "cc5ade360bd20fd6981e3b02b60bcb9733464dcff1559195f596b355cb68dd9a"
+content-hash = "b0c2e53b4f3200da1fde51b02eebb10984193d1311fae3451832a3a0d944217c"
 python-versions = "^3.5"
 
 [metadata.hashes]
@@ -957,7 +957,7 @@ pyparsing = ["66c9268862641abcac4a96ba74506e594c884e3f57690a696d21ad8210ed667a",
 pytest = ["80cfd9c8b9e93f419abcc0400e9f595974a98e44b6863a77d3e1039961bfc9c4", "c2396a15726218a2dfef480861c4ba37bd3952ebaaa5b0fede3fc23fddcd7f8c"]
 python-dateutil = ["7e6584c74aeed623791615e26efd690f29817a27c73085b78e4bad02493df2fb", "c89805f6f4d64db21ed966fda138f8a5ed7a4fdbc1a8ee329ce1b74e3c74da9e"]
 pytz = ["32b0891edff07e28efe91284ed9c31e123d84bea3fd98e1f72be2508f43ef8d9", "d5f05e487007e29e03409f9398d074e158d920d36eb82eaf66fb1136b0c5374c"]
-pyyaml = ["3d7da3009c0f3e783b2c873687652d83b1bbfd5c88e9813fb7e5b03c0dd3108b", "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf", "40c71b8e076d0550b2e6380bada1f1cd1017b882f7e16f09a65be98e017f211a", "558dd60b890ba8fd982e05941927a3911dc409a63dcb8b634feaa0cda69330d3", "a7c28b45d9f99102fa092bb213aa12e0aaf9a6a1f5e395d36166639c1f96c3a1", "aa7dd4a6a427aed7df6fb7f08a580d68d9b118d90310374716ae90b710280af1", "bc558586e6045763782014934bfaf39d48b8ae85a2713117d16c39864085c613", "d46d7982b62e0729ad0175a9bc7e10a566fc07b224d2c79fafb5e032727eaa04", "d5eef459e30b09f5a098b9cea68bebfeb268697f78d647bd255a085371ac7f3f", "e01d3203230e1786cd91ccfdc8f8454c8069c91bee3962ad93b87a4b2860f537", "e170a9e6fcfd19021dd29845af83bb79236068bf5fd4df3327c1be18182b2531"]
+pyyaml = ["1adecc22f88d38052fb787d959f003811ca858b799590a5eaa70e63dca50308c", "436bc774ecf7c103814098159fbb84c2715d25980175292c648f2da143909f95", "460a5a4248763f6f37ea225d19d5c205677d8d525f6a83357ca622ed541830c2", "5a22a9c84653debfbf198d02fe592c176ea548cccce47553f35f466e15cf2fd4", "7a5d3f26b89d688db27822343dfa25c599627bc92093e788956372285c6298ad", "9372b04a02080752d9e6f990179a4ab840227c6e2ce15b95e1278456664cf2ba", "a5dcbebee834eaddf3fa7366316b880ff4062e4bcc9787b78c7fbb4a26ff2dd1", "aee5bab92a176e7cd034e57f46e9df9a9862a71f8f37cad167c6fc74c65f5b4e", "c51f642898c0bacd335fc119da60baae0824f2cde95b0330b56c0553439f0673", "c68ea4d3ba1705da1e0d85da6684ac657912679a649e8868bd850d2c299cce13", "e23d0cc5299223dcc37885dae624f382297717e459ea24053709675a976a3e19"]
 querystring-parser = ["4c31b547c77b927a8aceccd6fa37f8152aa92fe5654a43d7363fcee8cf6d8aea"]
 requests = ["502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e", "7bf2a778576d825600030a110f3c0e3e8edc51dfaafe1c146e39a2027784957b"]
 s3transfer = ["7b9ad3213bff7d357f888e0fab5101b56fa1a0548ee77d121c3a3dbfbef4cb2e", "f23d5cb7d862b104401d9021fc82e5fa0e0cf57b7660a1331425aab0c691d021"]
