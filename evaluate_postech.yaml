@@ -13,4 +13,4 @@ pred-format: wmt17
 gold-target: data/test.mt.wsent-mqm
 
 # File path for the prediction files
-pred-target: predictions/predest/WMT17/tags
+pred-target: predictions/predest/sentence_scores
