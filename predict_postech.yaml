@@ -22,6 +22,7 @@ load-model: runs/estimator/best_model.torch
 # DATA OPTIONS
 #
 wmt18-format: False
+sentence-level: True
 test-source: data/test.src
 test-target: data/test.mt
-test-batch-size: 50
+valid-batch-size: 50
