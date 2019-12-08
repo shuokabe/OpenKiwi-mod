@@ -10,7 +10,7 @@ format: wmt17
 pred-format: wmt17
 
 # File path for the reference files
-gold-target: data/test.mt.wsent-mqm
+gold-sents: data/test.mt.wsent-mqm
 
 # File path for the prediction files
-pred-target: predictions/predest/sentence_scores
+pred-sents: predictions/predest/sentence_scores
