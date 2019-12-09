@@ -19,7 +19,7 @@ import logging
 from distutils.util import strtobool
 
 from kiwi.cli.better_argparse import PipelineParser
-from kiwi.cli.models import linear, nuqe, predictor, predictor_estimator, quetch, postech_vis_cli
+from kiwi.cli.models import linear, nuqe, predictor, predictor_estimator, quetch, postech_vis
 from kiwi.lib import train
 
 logger = logging.getLogger(__name__)
@@ -131,6 +131,7 @@ def build_parser():
             predictor.parser_for_pipeline('train'),
             quetch.parser_for_pipeline('train'),
             linear.parser_for_pipeline('train'),
+            postech_vis.parser_for_pipeline('train')
         ],
         options_fn=train_opts,
     )
