@@ -1,9 +1,9 @@
 ### Train Predictor Estimator ###
 
-model: estimator
+model: estimator_vis
 
 # Model Files will be saved here
-output-dir: runs/estimator
+output-dir: runs/estimator_vis
 
 #### MODEL SPECIFIC OPTS ####
 
@@ -106,13 +106,14 @@ train-source: data/train.src #WMT17/word_level/train.src
 train-target: data/train.mt #WMT17/word_level/train.mt
 #train-pe: data/WMT17/word_level/train.pe
 train-sentence-scores: data/train.mt.wsent-mqm #WMT17/word_level/train.tags
+train-sentence-vis: data/train.vis
 
 
 valid-source: data/dev.src #WMT17/word_level/dev.src
 valid-target: data/dev.mt #WMT17/word_level/dev.mt
 #valid-pe: data/WMT17/word_level/dev.pe
 valid-sentence-scores: data/dev.mt.wsent-mqm #WMT17/word_level/dev.tags
-
+valid-sentence-vis: data/dev.vis
 
 ### GENERAL OPTS ###
 
