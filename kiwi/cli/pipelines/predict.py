@@ -18,7 +18,7 @@
 import logging
 
 from kiwi.cli.better_argparse import PipelineParser
-from kiwi.cli.models import linear, nuqe, predictor_estimator, quetch
+from kiwi.cli.models import linear, nuqe, predictor_estimator, quetch, postech_vis_cli
 from kiwi.lib import predict
 
 logger = logging.getLogger(__name__)
