@@ -41,7 +41,7 @@ from kiwi.models.utils import apply_packed_sequence, make_loss_weights
 
 logger = logging.getLogger(__name__)
 
-'''
+
 class EstimatorConfig(PredictorConfig):
     def __init__(
         self,
@@ -674,6 +674,7 @@ class EstimatorVis(Model):
 
     def metrics_ordering(self):
         return max
+
 '''
 
 @Model.register_subclass
@@ -1243,3 +1244,4 @@ class Estimator(Model):
 
     def metrics_ordering(self):
         return max
+'''
