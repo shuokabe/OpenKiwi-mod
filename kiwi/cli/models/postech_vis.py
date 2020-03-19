@@ -534,17 +534,17 @@ def parser_for_pipeline(pipeline):
         return ModelParser(
             'estimator',
             'train',
-            title=Estimator.title,
+            title=EstimatorVis.title,
             options_fn=add_training_options,
-            api_module=Estimator,
+            api_module=EstimatorVis,
         )
     if pipeline == 'predict':
         return ModelParser(
             'estimator',
             'predict',
-            title=Estimator.title,
+            title=EstimatorVis.title,
             options_fn=add_predicting_options,
-            api_module=Estimator,
+            api_module=EstimatorVis,
         )
 
     return None

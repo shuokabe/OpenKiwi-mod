@@ -300,7 +300,7 @@ class EstimatorVis(Model):
         if opts.load_pred_target:
             predictor_tgt = Predictor.from_file(opts.load_pred_target)
 
-        model = Estimator(
+        model = EstimatorVis(
             vocabs,
             predictor_tgt=predictor_tgt,
             predictor_src=predictor_src,
