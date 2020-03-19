@@ -376,7 +376,7 @@ class EstimatorVis(Model):
         # Sentence/Binary/Token Level prediction
         sentence_input = self.make_sentence_input(h_tgt, h_src)
         if self.config.sentence_level:
-            if self.last_layer
+            if self.last_layer:
                 sentence_input_last = sentence_input * reduced_visual_feature
                 outputs.update(self.predict_sentence(sentence_input))
             else:
