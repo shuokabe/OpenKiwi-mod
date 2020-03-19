@@ -42,7 +42,7 @@ from kiwi.models.utils import apply_packed_sequence, make_loss_weights
 logger = logging.getLogger(__name__)
 
 
-class EstimatorConfig(PredictorConfig):
+class EstimatorVisConfig(PredictorConfig):
     def __init__(
         self,
         vocabs,
@@ -91,7 +91,7 @@ class EstimatorVis(Model):
         self, vocabs, predictor_tgt=None, predictor_src=None, **kwargs
     ):
 
-        super().__init__(vocabs=vocabs, ConfigCls=EstimatorConfig, **kwargs)
+        super().__init__(vocabs=vocabs, ConfigCls=EstimatorVisConfig, **kwargs)
 
         if predictor_src:
             self.config.update(predictor_src.config)
@@ -268,7 +268,7 @@ class EstimatorVis(Model):
 
     @staticmethod
     def fieldset(*args, **kwargs):
-        from kiwi.data.fieldsets.predictor_estimator import build_fieldset
+        from kiwi.data.fieldsets.postech_vis import build_fieldset
 
         return build_fieldset(*args, **kwargs)
 
