@@ -115,7 +115,7 @@ valid-target: data/dev.mt #WMT17/word_level/dev.mt
 valid-sentence-scores: data/dev.mt.wsent-mqm #WMT17/word_level/dev.tags
 valid-sentence-vis: data/dev.vis
 
-#visual_feature_size: 4096 # Multimodality
+visual_feature_size: 4096 # Multimodality
 
 ### GENERAL OPTS ###
 
