@@ -143,6 +143,8 @@ class EstimatorVis(Model):
         embedding_size = self.config.out_embeddings_size
         input_size = 2 * predictor_hidden + embedding_size
 
+        visual_feature_size = self.visual_feature_size
+
         self.nb_classes = len(const.LABELS)
         self.lstm_input_size = input_size
 
@@ -158,7 +160,7 @@ class EstimatorVis(Model):
         # Build Model #
 
         # Visual features
-        self.visual_feature = nn.Parameter(torch.zeros(1, visual_feature_size))
+        self.input_visual_feature = nn.Parameter(torch.zeros(1, visual_feature_size))
         self.reduced_visual = nn.Sequential(
             nn.Linear(visual_feature_size, sentence_input_size),
             nn.ReLU()
@@ -335,7 +337,7 @@ class EstimatorVis(Model):
         outputs = OrderedDict()
         contexts_tgt, h_tgt = None, None
         contexts_src, h_src = None, None
-        reduced_visual_feature = self.reduced_visual(self.visual_feature)
+        reduced_visual_feature = self.reduced_visual(self.input_visual_feature)
         if (
             self.config.predict_target
             or self.config.predict_gaps
