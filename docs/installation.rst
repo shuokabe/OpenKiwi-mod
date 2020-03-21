@@ -32,12 +32,12 @@ and the dependency manager.
 
 Since we want to allow OpenKiwi to be used both as an application and as a library,
 this has the added benefit of allowing us to specify dependencies in a single location
-and simplifying the packaging process. 
+and simplifying the packaging process.
 Consequently, you'll notice there's no `requirements.txt` and no `setup.py` files.
 The alternative routes are explained below.
 
 
-Before installing OpenKiwi and its development dependencies, we recommend the usual practice of 
+Before installing OpenKiwi and its development dependencies, we recommend the usual practice of
 creating a separate virtual environment to work on OpenKiwi.
 
 If you don't have Python 3.5, 3.6, or 3.7, or need help creating a virtualenv, check online guides
@@ -66,13 +66,13 @@ That's it! Now, running::
    python kiwi -h
 
 or::
-   
+
    kiwi -h
 
 should show you a help message.
 
 MLflow integration
------------------- 
+------------------
 
 **Optionally**, if you'd like to take advantage of our `MLflow <https://mlflow.org/>`_ integration, simply install it in the same virtualenv as OpenKiwi::
 
@@ -80,6 +80,5 @@ MLflow integration
 
 
 **Or** in case you have installed OpenKiwi as a local package, you should add mlflow to your env with::
-   
-   poetry install -e mlflow
 
+   poetry install -E mlflow
