@@ -159,14 +159,14 @@ class EstimatorVis(Model):
         self.last_layer = None
 
         # Build Model #
-
+        '''
         # Visual features
         self.input_visual_feature = nn.Parameter(torch.zeros(1, visual_feature_size))
         self.reduced_visual = nn.Sequential(
             nn.Linear(visual_feature_size, sentence_input_size),
             nn.ReLU()
         )
-
+        '''
         if self.config.start_stop:
             self.start_PreQEFV = nn.Parameter(torch.zeros(1, 1, embedding_size))
             self.end_PreQEFV = nn.Parameter(torch.zeros(1, 1, embedding_size))
@@ -199,6 +199,12 @@ class EstimatorVis(Model):
         # Multitask Learning Objectives #
         sentence_input_size = (
             2 * self.config.rnn_layers_est * self.config.hidden_est
+        )
+        # Visual features
+        self.input_visual_feature = nn.Parameter(torch.zeros(1, visual_feature_size))
+        self.reduced_visual = nn.Sequential(
+            nn.Linear(visual_feature_size, sentence_input_size),
+            nn.ReLU()
         )
         if self.config.sentence_level:
             if self.last_layer: # Multimodal version: last layer merging
