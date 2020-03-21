@@ -1,6 +1,6 @@
 ### Train Predictor Estimator ###
 
-model: estimator_vis
+model: estimatorVis
 
 # Model Files will be saved here
 output-dir: runs/estimator_vis
