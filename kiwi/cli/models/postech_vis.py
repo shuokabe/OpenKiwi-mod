@@ -532,7 +532,7 @@ def add_predicting_options(predicting_parser):
 def parser_for_pipeline(pipeline):
     if pipeline == 'train':
         return ModelParser(
-            'estimator',
+            'estimatorVis',
             'train',
             title=EstimatorVis.title,
             options_fn=add_training_options,
@@ -540,7 +540,7 @@ def parser_for_pipeline(pipeline):
         )
     if pipeline == 'predict':
         return ModelParser(
-            'estimator',
+            'estimatorVis',
             'predict',
             title=EstimatorVis.title,
             options_fn=add_predicting_options,
