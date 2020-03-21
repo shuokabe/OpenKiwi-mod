@@ -81,6 +81,7 @@ class EstimatorVisConfig(PredictorConfig):
         self.target_bad_weight = target_bad_weight
         self.source_bad_weight = source_bad_weight
         self.gaps_bad_weight = gaps_bad_weight
+        self.visual_feature_size = 4096
 
 
 @Model.register_subclass
@@ -143,7 +144,7 @@ class EstimatorVis(Model):
         embedding_size = self.config.out_embeddings_size
         input_size = 2 * predictor_hidden + embedding_size
 
-        visual_feature_size = self.visual_feature_size
+        visual_feature_size = self.config.visual_feature_size
 
         self.nb_classes = len(const.LABELS)
         self.lstm_input_size = input_size
