@@ -43,6 +43,16 @@ class Predicter:
         # Will break in Multi GPU mode
         self._device = next(model.parameters()).device
 
+    def to(self, device):
+        """Method to mode Predicter object to other device. e.g: "cuda"
+
+        Args:
+          device (str): Device to which the model should be move to.
+        """
+
+        self._device = device
+        self.model.to(device)
+
     def predict(self, examples, batch_size=1):
         """Create Predictions for a list of examples.
 
@@ -66,9 +76,9 @@ class Predicter:
              >>> src = ['a b c', 'd e f g']
              >>> tgt = ['q w e r', 't y']
              >>> align = ['0-0 1-1 1-2', '1-1 3-0']
-             >>> examples = [kiwi.constants.SOURCE: src,
+             >>> examples = {kiwi.constants.SOURCE: src,
                              kiwi.constants.TARGET: tgt,
-                             kiwi.constants.ALIGNMENTS: align]
+                             kiwi.constants.ALIGNMENTS: align}
              >>> predictor.predict(examples)
              {'tags': [[0.4760947525501251,
                 0.47569847106933594,
