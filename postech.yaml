@@ -74,7 +74,7 @@ log-interval: 100
 # 1e-3 * (batch_size / 32) seems to work well
 learning-rate: 2e-3
 
-train-batch-size: 50
+train-batch-size: 10 #50
 valid-batch-size: 50
 
 
