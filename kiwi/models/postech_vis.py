@@ -61,6 +61,7 @@ class EstimatorVisConfig(PredictorConfig):
         target_bad_weight=2.0,
         source_bad_weight=2.0,
         gaps_bad_weight=2.0,
+        visual_feature_size=0,
         **kwargs
     ):
         """Predictor Estimator Hyperparams.
@@ -156,7 +157,7 @@ class EstimatorVis(Model):
         self.binary_scale = None
 
         # For multimodality
-        self.last_layer = None
+        self.last_layer = True #None
 
         # Build Model #
         '''
@@ -299,6 +300,8 @@ class EstimatorVis(Model):
                 target_bad_weight: Weight for target tags bad class. Default 3.0
                 source_bad_weight: Weight for source tags bad class. Default 3.0
                 gaps_bad_weight: Weight for gap tags bad class. Default 3.0
+                visual_feature_size: Length of the visual feature vector.
+                                     Default 0
 
         Returns:
 
@@ -337,6 +340,7 @@ class EstimatorVis(Model):
             source_embeddings_size=opts.source_embeddings_size,
             out_embeddings_size=opts.out_embeddings_size,
             predict_inverse=opts.predict_inverse,
+            visual_feature_size=opts.visual_feature_size
         )
         return model
 
@@ -385,7 +389,7 @@ class EstimatorVis(Model):
         # Sentence/Binary/Token Level prediction
         sentence_input = self.make_sentence_input(h_tgt, h_src)
         if self.config.sentence_level:
-            if self.last_layer:
+            if self.last_layer: # If multimodality
                 sentence_input_last = sentence_input * reduced_visual_feature
                 outputs.update(self.predict_sentence(sentence_input))
             else:
