@@ -350,6 +350,8 @@ def retrieve_datasets(fieldset, pipeline_options, model_options, output_dir):
             fieldset, load_vocab=load_vocab, **vars(model_options)
         )
         print('Length datasets:', len(datasets))
+        print('model_options:', model_options)
+        print('load_vocab:', load_vocab)
         print(datasets)
     return datasets
 
