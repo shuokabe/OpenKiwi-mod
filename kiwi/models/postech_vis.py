@@ -82,7 +82,8 @@ class EstimatorVisConfig(PredictorConfig):
         self.target_bad_weight = target_bad_weight
         self.source_bad_weight = source_bad_weight
         self.gaps_bad_weight = gaps_bad_weight
-        self.visual_feature_size = 4096
+        self.visual_feature_size = 4096 # For multimodality
+        self.last_layer = True #None
 
 
 @Model.register_subclass
@@ -156,8 +157,6 @@ class EstimatorVis(Model):
         self.binary_pred = None
         self.binary_scale = None
 
-        # For multimodality
-        self.last_layer = True #None
 
         # Build Model #
         '''
@@ -389,7 +388,7 @@ class EstimatorVis(Model):
         # Sentence/Binary/Token Level prediction
         sentence_input = self.make_sentence_input(h_tgt, h_src)
         if self.config.sentence_level:
-            if self.last_layer: # If multimodality
+            if self.config.last_layer: # If multimodality
                 sentence_input_last = sentence_input * reduced_visual_feature
                 outputs.update(self.predict_sentence(sentence_input))
             else:
