@@ -120,3 +120,6 @@ valid-sentence-scores: data/dev.mt.wsent-mqm #WMT17/word_level/dev.tags
 experiment-name: sent-level
 # Do not set or set to negative number for CPU
 gpu-id: 1
+
+# Random
+seed: 42
