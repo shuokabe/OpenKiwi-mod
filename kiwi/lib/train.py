@@ -349,6 +349,8 @@ def retrieve_datasets(fieldset, pipeline_options, model_options, output_dir):
         datasets = builders.build_training_datasets(
             fieldset, load_vocab=load_vocab, **vars(model_options)
         )
+        print('Length datasets:', len(datasets))
+        print(datasets)
     return datasets
 
 

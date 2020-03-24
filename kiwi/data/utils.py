@@ -170,8 +170,6 @@ def load_datasets(directory, *datasets_names):
     )
 
     datasets = [dataset_dict[name] for name in datasets_names]
-    print('Length of dataset', len(datasets))
-    print(datasets)
     return datasets
 
 
