@@ -207,7 +207,7 @@ class EstimatorVis(Model):
             nn.ReLU()
         )
         if self.config.sentence_level:
-            if self.last_layer: # Multimodal version: last layer merging
+            if self.config.last_layer: # Multimodal version: last layer merging
                 self.sentence_pred = nn.Sequential(
                     nn.Linear(sentence_input_size, sentence_input_size // 2),
                     nn.Sigmoid(),
