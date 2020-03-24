@@ -42,6 +42,7 @@ def build_parser():
             predictor_estimator.parser_for_pipeline("predict"),
             quetch.parser_for_pipeline("predict"),
             linear.parser_for_pipeline("predict"),
+            postech_vis.parser_for_pipeline("predict"),
         ],
         options_fn=predict_opts,
     )
