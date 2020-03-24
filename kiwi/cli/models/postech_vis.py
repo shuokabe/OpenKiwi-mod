@@ -63,7 +63,7 @@ def _add_training_data_file_opts(parser):
         type=PathType(exists=True),
         help='Path to file containing sentence level scores.',
     )
-    group.add_argument(
+    group.add_argument( # Multimodality
         '--train-sentence-vis',
         type=PathType(exists=True),
         help='Path to file containing sentence level visual features.',
@@ -116,7 +116,7 @@ def _add_training_data_file_opts(parser):
         type=PathType(exists=True),
         help='Path to file containing sentence level scores.',
     )
-    valid_group.add_argument(
+    valid_group.add_argument( # Multimodality
         '--valid-sentence-vis',
         type=PathType(exists=True),
         help='Path to file containing sentence level visual features.',
@@ -138,6 +138,12 @@ def _add_predicting_data_file_opts(parser):
         type=PathType(exists=True),
         required=True,
         help='Path to validation target file',
+    )
+    group.add_argument( # Multimodality
+        '--test-sentence-vis',
+        type=PathType(exists=True),
+        required=True,
+        help='Path to file containing sentence level visual features.',
     )
     return group
 
