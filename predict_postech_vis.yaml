@@ -1,0 +1,29 @@
+#MAIN OPTIONS (running args)
+
+experiment-name: sent-level
+
+output-dir: predictions/predest/
+
+#
+# GENERAL OPTIONS
+#
+# random
+seed: 42
+
+# gpu
+gpu-id: 1
+
+model: estimatorVis
+
+# save and load
+load-model: runs/estimator_vis/best_model.torch
+
+#
+# DATA OPTIONS
+#
+wmt18-format: False
+sentence-level: True
+test-source: data/test.src
+test-target: data/test.mt
+test-sentence-vis: data/test.vis
+valid-batch-size: 50
