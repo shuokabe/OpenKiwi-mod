@@ -389,7 +389,7 @@ class EstimatorVis(Model):
         sentence_input = self.make_sentence_input(h_tgt, h_src)
         if self.config.sentence_level:
             print('sentence_input', sentence_input)
-            print('input_visual_feature', input_visual_feature)
+            print('input_visual_feature', self.input_visual_feature)
             print('red_vis_feature', reduced_visual_feature)
             if self.config.last_layer: # If multimodality
                 sentence_input_last = sentence_input * reduced_visual_feature
