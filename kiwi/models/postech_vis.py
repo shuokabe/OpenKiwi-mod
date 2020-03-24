@@ -388,9 +388,9 @@ class EstimatorVis(Model):
         # Sentence/Binary/Token Level prediction
         sentence_input = self.make_sentence_input(h_tgt, h_src)
         if self.config.sentence_level:
-            print('sentence_input', len(sentence_input))
-            print('input_visual_feature', len(self.input_visual_feature))
-            print('red_vis_feature', len(reduced_visual_feature))
+            print('sentence_input', sentence_input.size())
+            print('input_visual_feature', self.input_visual_feature.size())
+            print('red_vis_feature', reduced_visual_feature.size())
             if self.config.last_layer: # If multimodality
                 sentence_input_last = sentence_input * reduced_visual_feature
                 outputs.update(self.predict_sentence(sentence_input))
