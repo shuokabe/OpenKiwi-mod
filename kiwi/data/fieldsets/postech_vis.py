@@ -111,6 +111,15 @@ def build_fieldset(wmt18_format=False):
         file_option_suffix='_sentence_scores',
         required=None,
     )
+    # Multimodality: visual features
+    fieldset.add(
+        name=const.VISUAL,
+        field=data.Field(
+            sequential=False, use_vocab=False, dtype=torch.float32
+        ),
+        file_option_suffix='_visual',
+        required=None,
+    )
 
     pipe = data.Pipeline(utils.hter_to_binary)
     fieldset.add(

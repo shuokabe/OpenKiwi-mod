@@ -47,6 +47,7 @@ PE = 'pe'
 TARGET_TAGS = 'tags'
 SOURCE_TAGS = 'source_tags'
 GAP_TAGS = 'gap_tags'
+VISUAL = 'visual' # Multimodality
 
 TAGS = [TARGET_TAGS, SOURCE_TAGS, GAP_TAGS]
 

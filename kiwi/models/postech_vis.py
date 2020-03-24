@@ -201,8 +201,6 @@ class EstimatorVis(Model):
             2 * self.config.rnn_layers_est * self.config.hidden_est
         )
         # Visual features
-        batch_size = self.embedding_out.size()[0]
-        print('batch_size', batch_size)
         self.input_visual_feature = nn.Parameter(torch.zeros(1, visual_feature_size))
         self.reduced_visual = nn.Sequential(
             nn.Linear(visual_feature_size, sentence_input_size),
