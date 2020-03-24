@@ -338,8 +338,8 @@ class EstimatorVis(Model):
             target_embeddings_size=opts.target_embeddings_size,
             source_embeddings_size=opts.source_embeddings_size,
             out_embeddings_size=opts.out_embeddings_size,
-            predict_inverse=opts.predict_inverse#,
-            #visual_feature_size=opts.visual_feature_size
+            predict_inverse=opts.predict_inverse,
+            visual_feature_size=opts.visual_feature_size
         )
         return model
 
