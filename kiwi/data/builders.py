@@ -39,6 +39,7 @@ def build_dataset(fieldset, prefix='', filter_pred=None, **kwargs):
     dataset = QEDataset(
         examples=examples, fields=fields, filter_pred=filter_pred
     )
+    print('   dataset:', dataset) # Add
     return dataset
 
 
