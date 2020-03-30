@@ -94,11 +94,14 @@ class Fieldset:
                     'option).'.format(file_name, file_option.replace('_', '-'))
                 )
             elif file_name:
+                print('   file name in elif:', file_name)
                 files[name] = {
                     'name': file_name,
                     'reader': self._file_reader.get(name),
                 }
                 fields[name] = self._fields[name]
+        print('     fields:', fields)
+        print('     files:', files)
         return fields, files
 
     # def files_formats(self):
