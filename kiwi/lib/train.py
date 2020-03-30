@@ -122,6 +122,7 @@ def train_from_options(options):
         )
 
         print('ModelClass', ModelClass) # Add new
+        print('pipeline_options', pipeline_options) # Add new
         trainer = run(ModelClass, output_dir, pipeline_options, model_options)
         train_info = TrainRunInfo(trainer)
 
