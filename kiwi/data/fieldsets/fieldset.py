@@ -86,10 +86,11 @@ class Fieldset:
         fields = {}
         files = {}
         for name, file_option_suffix in self._options.items():
-            print('name in fields and files:', name)
-            print('file_option_suffix:', file_option_suffix)
+            print('name in fields and files:', name) # Add
+            print('file_option_suffix:', file_option_suffix) # Add
             file_option = '{}{}'.format(set_name, file_option_suffix)
             file_name = files_options.get(file_option)
+            print('  file_name:', file_name) # Add
             if not file_name and self.is_required(name, set_name):
                 raise FileNotFoundError(
                     'File {} is required (use the {} '
