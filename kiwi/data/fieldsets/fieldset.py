@@ -85,6 +85,7 @@ class Fieldset:
     def fields_and_files(self, set_name, **files_options):
         fields = {}
         files = {}
+        print('files_options:', files_options)
         for name, file_option_suffix in self._options.items():
             print('name in fields and files:', name) # Add
             print('file_option_suffix:', file_option_suffix) # Add
