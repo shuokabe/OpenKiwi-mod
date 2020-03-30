@@ -85,6 +85,7 @@ class Fieldset:
     def fields_and_files(self, set_name, **files_options):
         fields = {}
         files = {}
+        print('files_options as kwargs', files_options)
         for name, file_option_suffix in self._options.items():
             file_option = '{}{}'.format(set_name, file_option_suffix)
             print('    file_option before the if_else', file_option)
