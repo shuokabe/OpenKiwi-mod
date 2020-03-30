@@ -86,7 +86,7 @@ def build_fieldset(wmt18_format=False):
             sequential=False, use_vocab=False, dtype=torch.float32
         ),
         file_option_suffix='_visual',
-        required=Fieldset.TRAIN,
+        required=None,
     )
 
     post_pipe_target = data.Pipeline(utils.project)
