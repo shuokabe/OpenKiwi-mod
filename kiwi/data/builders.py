@@ -30,6 +30,7 @@ from kiwi.data.utils import (
 
 
 def build_dataset(fieldset, prefix='', filter_pred=None, **kwargs):
+    print('kwargs in build_dataset', kwargs) # Add
     fields, files = fieldset.fields_and_files(prefix, **kwargs)
     examples = Corpus.from_files(fields=fields, files=files)
     dataset = QEDataset(
