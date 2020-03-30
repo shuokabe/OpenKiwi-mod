@@ -201,7 +201,7 @@ class EstimatorVis(Model):
             2 * self.config.rnn_layers_est * self.config.hidden_est
         )
         # Visual features
-        self.input_visual_feature = nn.Parameter(torch.zeros(1, visual_feature_size))
+        #self.input_visual_feature = nn.Parameter(torch.zeros(1, visual_feature_size))
         self.reduced_visual = nn.Sequential(
             nn.Linear(visual_feature_size, sentence_input_size),
             nn.ReLU()
@@ -347,7 +347,8 @@ class EstimatorVis(Model):
         outputs = OrderedDict()
         contexts_tgt, h_tgt = None, None
         contexts_src, h_src = None, None
-        reduced_visual_feature = self.reduced_visual(self.input_visual_feature)
+        input_visual_feature = batch.visual
+        reduced_visual_feature = self.reduced_visual(input_visual_feature)
         if (
             self.config.predict_target
             or self.config.predict_gaps
@@ -385,7 +386,7 @@ class EstimatorVis(Model):
             logits = self.predict_tags(contexts_src)
             outputs[const.SOURCE_TAGS] = logits
 
-        print('batch', batch) # New add 
+        print('batch', batch) # New add
         # Sentence/Binary/Token Level prediction
         sentence_input = self.make_sentence_input(h_tgt, h_src)
         if self.config.sentence_level:
