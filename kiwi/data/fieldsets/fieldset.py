@@ -88,6 +88,7 @@ class Fieldset:
         for name, file_option_suffix in self._options.items():
             file_option = '{}{}'.format(set_name, file_option_suffix)
             file_name = files_options.get(file_option)
+            print('    file_name before the if_else:', file_name)
             if not file_name and self.is_required(name, set_name):
                 raise FileNotFoundError(
                     'File {} is required (use the {} '
