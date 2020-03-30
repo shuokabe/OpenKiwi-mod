@@ -385,6 +385,7 @@ class EstimatorVis(Model):
             logits = self.predict_tags(contexts_src)
             outputs[const.SOURCE_TAGS] = logits
 
+        print('batch', batch) # New add 
         # Sentence/Binary/Token Level prediction
         sentence_input = self.make_sentence_input(h_tgt, h_src)
         if self.config.sentence_level:
