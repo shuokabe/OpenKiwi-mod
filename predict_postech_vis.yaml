@@ -25,5 +25,6 @@ wmt18-format: False
 sentence-level: True
 test-source: data/test.src
 test-target: data/test.mt
-test-sentence-visual: data/test.vis
+#test-sentence-visual: data/test.vis
+test-visual: data/test.vis
 valid-batch-size: 50
