@@ -79,6 +79,15 @@ def build_fieldset(wmt18_format=False):
         required=None,
         vocab_options=target_vocab_options,
     )
+    # Multimodality: visual features
+    fieldset.add(
+        name=const.VISUAL,
+        field=data.Field(
+            sequential=False, use_vocab=False, dtype=torch.float32
+        ),
+        file_option_suffix='_visual',
+        required=Fieldset.TRAIN,
+    )
 
     post_pipe_target = data.Pipeline(utils.project)
     if wmt18_format:
@@ -109,15 +118,6 @@ def build_fieldset(wmt18_format=False):
             sequential=False, use_vocab=False, dtype=torch.float32
         ),
         file_option_suffix='_sentence_scores',
-        required=None,
-    )
-    # Multimodality: visual features
-    fieldset.add(
-        name=const.VISUAL,
-        field=data.Field(
-            sequential=False, use_vocab=False, dtype=torch.float32
-        ),
-        file_option_suffix='_visual',
         required=None,
     )
 
