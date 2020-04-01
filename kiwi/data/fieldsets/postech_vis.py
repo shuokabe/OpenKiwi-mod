@@ -80,11 +80,17 @@ def build_fieldset(wmt18_format=False):
         vocab_options=target_vocab_options,
     )
     # Multimodality: visual features
+    def raw_visual_to_list(x):
+        """Transform a raw visual feature vector (string) into a list of
+        numerical values.
+        """
+        return x.split()
+    preprocess_visual = data.Pipeline(raw_visual_to_list)
     fieldset.add(
         name=const.VISUAL,
         field=data.Field(
             sequential=False, use_vocab=False, dtype=torch.float32,
-            tokenize=tokenizer,
+            preprocessing=preprocess_visual,
         ),
         file_option_suffix='_visual',
         required=None,
