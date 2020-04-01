@@ -18,7 +18,8 @@
 
 def tokenizer(sentence):
     """Implement your own tokenize procedure."""
-    print('sentence before tokenizer:', sentence) # Add
+    print('type sentence before tokenizer:', type(sentence)) # Add
+    print('length sentence before tokenizer:', len(sentence)) # Add
     return sentence.strip().split()
 
 
