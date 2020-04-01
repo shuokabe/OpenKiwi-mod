@@ -20,6 +20,9 @@ def tokenizer(sentence):
     """Implement your own tokenize procedure."""
     print('type sentence before tokenizer:', type(sentence)) # Add
     print('length sentence before tokenizer:', len(sentence)) # Add
+    print('returned element:', sentence.strip().split()) # Add
+    print('returned element type:', type(sentence.strip().split())) # Add
+    print('returned element length:', len(sentence.strip().split())) # Add
     return sentence.strip().split()
 
 
