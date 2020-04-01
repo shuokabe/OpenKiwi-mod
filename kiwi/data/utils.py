@@ -322,4 +322,4 @@ def raw_visual_to_list(x):
     print('returned element type:', type(x.split())) # Add
     print('x[0]:', float(x[0]), type(x[0]))
     print('returned element length:', len(x.split())) # Add
-    return x.split()
+    return [float(y) for y in x.split()]
