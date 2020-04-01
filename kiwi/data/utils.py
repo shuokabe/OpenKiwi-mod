@@ -316,10 +316,10 @@ def raw_visual_to_list(x):
     """Transform a raw visual feature vector (string) into a list of
     numerical values.
     """
-    print('type visual feature before tokenizer:', type(x)) # Add
-    print('length visual feature before tokenizer:', len(x)) # Add
-    print('returned element:', x.split()) # Add
-    print('returned element type:', type(x.split())) # Add
-    print('x[0]:', float(x[0]), type(x[0]))
-    print('returned element length:', len(x.split())) # Add
+    #print('type visual feature before tokenizer:', type(x)) # Add
+    #print('length visual feature before tokenizer:', len(x)) # Add
+    #print('returned element:', x.split()) # Add
+    #print('returned element type:', type(x.split())) # Add
+    #print('x[0]:', float(x[0]), type(x[0]))
+    #print('returned element length:', len(x.split())) # Add
     return [float(y) for y in x.split()]
