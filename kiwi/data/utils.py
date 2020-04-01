@@ -296,7 +296,6 @@ def project(batch, *args):
 
        Needed to create a postprocessing pipeline that implements the identity.
     """
-    print('project print:', batch) # Add
     return batch
 
 
