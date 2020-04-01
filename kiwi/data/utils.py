@@ -309,3 +309,15 @@ def filter_len(
     return (source_min_length <= len(x.source) <= source_max_length) and (
         target_min_length <= len(x.target) <= target_max_length
     )
+
+# Multimodality: visual features
+def raw_visual_to_list(x):
+    """Transform a raw visual feature vector (string) into a list of
+    numerical values.
+    """
+    print('type visual feature before tokenizer:', type(x)) # Add
+    print('length visual feature before tokenizer:', len(x)) # Add
+    print('returned element:', x.split()) # Add
+    print('returned element type:', type(x[0].split())) # Add
+    print('returned element length:', len(x.split())) # Add
+    return x.split()
