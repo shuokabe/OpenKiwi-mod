@@ -296,6 +296,7 @@ def project(batch, *args):
 
        Needed to create a postprocessing pipeline that implements the identity.
     """
+    print('project print:', batch) # Add
     return batch
 
 
@@ -319,6 +320,6 @@ def raw_visual_to_list(x):
     print('length visual feature before tokenizer:', len(x)) # Add
     print('returned element:', x.split()) # Add
     print('returned element type:', type(x.split())) # Add
-    print('x[0]:', x[0], type(x[0]))
+    print('x[0]:', float(x[0]), type(x[0]))
     print('returned element length:', len(x.split())) # Add
     return x.split()
