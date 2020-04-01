@@ -84,6 +84,11 @@ def build_fieldset(wmt18_format=False):
         """Transform a raw visual feature vector (string) into a list of
         numerical values.
         """
+        print('type sentence before tokenizer:', type(x)) # Add
+        print('length sentence before tokenizer:', len(x)) # Add
+        print('returned element:', x.strip().split()) # Add
+        print('returned element type:', type(x.strip().split())) # Add
+        print('returned element length:', len(x.strip().split())) # Add
         return x.split()
     preprocess_visual = data.Pipeline(raw_visual_to_list)
     fieldset.add(
