@@ -83,7 +83,7 @@ def build_fieldset(wmt18_format=False):
     fieldset.add(
         name=const.VISUAL,
         field=data.Field(
-            sequential=False, use_vocab=False, dtype=torch.float32
+            sequential=True, use_vocab=False, dtype=torch.float32
         ),
         file_option_suffix='_visual',
         required=None,

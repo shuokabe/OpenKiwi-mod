@@ -93,7 +93,6 @@ def train_from_options(options):
     if options is None:
         return
 
-    print('options in train_from_options:', options) # Add
     pipeline_options = options.pipeline
     model_options = options.model
     ModelClass = options.model_api
