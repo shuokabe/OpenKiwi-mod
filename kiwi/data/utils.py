@@ -318,6 +318,7 @@ def raw_visual_to_list(x):
     print('type visual feature before tokenizer:', type(x)) # Add
     print('length visual feature before tokenizer:', len(x)) # Add
     print('returned element:', x.split()) # Add
-    print('returned element type:', type(x[0].split())) # Add
+    print('returned element type:', type(x.split())) # Add
+    print('x[0]:', x[0], type(x[0]))
     print('returned element length:', len(x.split())) # Add
     return x.split()

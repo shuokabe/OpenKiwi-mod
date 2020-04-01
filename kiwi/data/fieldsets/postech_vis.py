@@ -81,11 +81,15 @@ def build_fieldset(wmt18_format=False):
     )
     # Multimodality: visual features
     preprocess_visual = data.Pipeline(utils.raw_visual_to_list)
+    def printing_vector(x):
+        print('postprocessed vector:', x)
+        return x
+    postprocess_visual = data.Pipeline(printing_vector)
     fieldset.add(
         name=const.VISUAL,
         field=data.Field(
             sequential=False, use_vocab=False, dtype=torch.float32,
-            preprocessing=preprocess_visual,
+            preprocessing=preprocess_visual, postprocessing=postprocess_print,
         ),
         file_option_suffix='_visual',
         required=None,
