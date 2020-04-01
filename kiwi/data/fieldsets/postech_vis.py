@@ -81,7 +81,7 @@ def build_fieldset(wmt18_format=False):
     )
     # Multimodality: visual features
     preprocess_visual = data.Pipeline(utils.raw_visual_to_list)
-    def printing_vector(x):
+    def printing_vector(x, None):
         print('postprocessed vector:', x)
         return x
     postprocess_visual = data.Pipeline(printing_vector)
