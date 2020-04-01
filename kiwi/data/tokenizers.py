@@ -18,6 +18,7 @@
 
 def tokenizer(sentence):
     """Implement your own tokenize procedure."""
+    print('sentence before tokenizer:', sentence) # Add
     return sentence.strip().split()
 
 
