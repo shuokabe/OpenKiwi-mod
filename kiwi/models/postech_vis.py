@@ -348,7 +348,7 @@ class EstimatorVis(Model):
         contexts_tgt, h_tgt = None, None
         contexts_src, h_src = None, None
         input_visual_feature = batch.visual
-        print('batch visual:', input_visual_feature) # Add
+        print('batch visual:', input_visual_feature.size()) # Add
         reduced_visual_feature = self.reduced_visual(input_visual_feature)
         if (
             self.config.predict_target
