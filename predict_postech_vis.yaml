@@ -27,4 +27,4 @@ test-source: data/test.src
 test-target: data/test.mt
 #test-sentence-visual: data/test.vis
 test-visual: data/test.vis
-test-batch-size: 50
+test-batch-size: 64
