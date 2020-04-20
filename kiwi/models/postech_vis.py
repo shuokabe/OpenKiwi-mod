@@ -348,7 +348,7 @@ class EstimatorVis(Model):
         contexts_tgt, h_tgt = None, None
         contexts_src, h_src = None, None
         input_visual_feature = batch.visual
-        print('batch visual:', input_visual_feature.size()) # Add
+        #print('batch visual:', input_visual_feature.size()) # Add
         reduced_visual_feature = self.reduced_visual(input_visual_feature)
         if (
             self.config.predict_target
@@ -387,7 +387,7 @@ class EstimatorVis(Model):
             logits = self.predict_tags(contexts_src)
             outputs[const.SOURCE_TAGS] = logits
 
-        print('batch', batch) # New add
+        #print('batch', batch) # New add
         # Sentence/Binary/Token Level prediction
         sentence_input = self.make_sentence_input(h_tgt, h_src)
         if self.config.sentence_level:
