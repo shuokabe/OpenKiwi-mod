@@ -621,8 +621,8 @@ class EstimatorVis(Model):
             )
 
         if self.config.sentence_level:
-            metrics.append(RMSEMetric(target_name=const.SENTENCE_SCORES))
             metrics.append(PearsonMetric(target_name=const.SENTENCE_SCORES))
+            metrics.append(RMSEMetric(target_name=const.SENTENCE_SCORES))
             metrics.append(SpearmanMetric(target_name=const.SENTENCE_SCORES))
             if self.config.sentence_ll:
                 metrics.append(
