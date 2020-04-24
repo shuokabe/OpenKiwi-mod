@@ -210,7 +210,7 @@ class EstimatorVis(Model):
         )
         if self.config.sentence_level:
             if self.config.visual_strategy == 'last': # Multimodal version: last layer merging
-                if sefl.config.visual_method == 'conc':
+                if self.config.visual_method == 'conc':
                     print('sentence_input_size:', sentence_input_size)
                     self.sentence_pred = nn.Sequential(
                         nn.Linear(sentence_input_size * 2, sentence_input_size // 2),
@@ -407,8 +407,10 @@ class EstimatorVis(Model):
             #print('input_visual_feature', self.input_visual_feature.size())
             if self.config.visual_strategy == 'last': # If last layer merging
                 if self.config.visual_method == 'mult':
+                    print('successulf last mult in forward')
                     sentence_input_last = sentence_input * reduced_visual_feature
                 elif self.config.visual_method == 'conc':
+                    print('successulf last conc in forward')
                     sentence_input_last = sentence_input + reduced_visual_feature
                 else:
                     raise Exception('Unknown visual method.')
