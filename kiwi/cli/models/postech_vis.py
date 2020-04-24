@@ -490,6 +490,20 @@ def add_training_options(training_parser):
         help='Relative weight for source bad labels.',
     )
 
+    # For visual features
+    group.add_argument(
+        '--visual-strategy',
+        type=str,
+        default='last',
+        help='Visual feature merging strategy.',
+    )
+    group.add_argument(
+        '--visual-method',
+        type=str,
+        default='mult',
+        help='Visual feature merging method.',
+    )
+
 
 def add_predicting_options(predicting_parser):
     _add_predicting_data_file_opts(predicting_parser)
