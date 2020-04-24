@@ -206,12 +206,19 @@ class EstimatorVis(Model):
         )
         # Visual features
         #self.input_visual_feature = nn.Parameter(torch.zeros(1, visual_feature_size))
+        '''
         self.reduced_visual = nn.Sequential(
             nn.Linear(visual_feature_size, sentence_input_size),
             nn.ReLU()
         )
+        '''
         if self.config.sentence_level:
             if self.config.visual_strategy == 'last': # Multimodal version: last layer merging
+                # Visual features
+                self.reduced_visual = nn.Sequential(
+                    nn.Linear(visual_feature_size, sentence_input_size),
+                    nn.ReLU()
+                )
                 if self.config.visual_method == 'conc':
                     print('sentence_input_size:', sentence_input_size)
                     self.sentence_pred = nn.Sequential(
