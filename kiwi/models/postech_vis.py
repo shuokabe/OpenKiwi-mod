@@ -412,11 +412,11 @@ class EstimatorVis(Model):
             #print('input_visual_feature', self.input_visual_feature.size())
             if self.config.visual_strategy == 'last': # If last layer merging
                 if self.config.visual_method == 'mult':
-                    print('successulf last mult in forward')
                     sentence_input_last = sentence_input * reduced_visual_feature
+                    print('successulf last mult in forward', sentence_input_last)
                 elif self.config.visual_method == 'conc':
                     print('successulf last conc in forward')
-                    sentence_input_last = sentence_input + reduced_visual_feature
+                    sentence_input_last = torch.cat((sentence_input, reduced_visual_feature), 1) #sentence_input + reduced_visual_feature
                 else:
                     raise Exception('Unknown visual method.')
                 outputs.update(self.predict_sentence(sentence_input_last))
