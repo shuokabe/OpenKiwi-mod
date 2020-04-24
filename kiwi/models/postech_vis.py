@@ -84,8 +84,8 @@ class EstimatorVisConfig(PredictorConfig):
         self.gaps_bad_weight = gaps_bad_weight
         self.visual_feature_size = 4096 # For multimodality
         #self.last_layer = True #None
-        self.visual_strategy = 'last'
-        self.visual_method = 'mult'
+        self.visual_strategy = visual_strategy #'last'
+        self.visual_method = visual_method #'mult'
 
 
 @Model.register_subclass
