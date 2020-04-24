@@ -83,7 +83,9 @@ class EstimatorVisConfig(PredictorConfig):
         self.source_bad_weight = source_bad_weight
         self.gaps_bad_weight = gaps_bad_weight
         self.visual_feature_size = 4096 # For multimodality
-        self.last_layer = True #None
+        #self.last_layer = True #None
+        self.visual_strategy = 'last'
+        self.visual_method = 'mult'
 
 
 @Model.register_subclass
@@ -207,14 +209,24 @@ class EstimatorVis(Model):
             nn.ReLU()
         )
         if self.config.sentence_level:
-            if self.config.last_layer: # Multimodal version: last layer merging
-                self.sentence_pred = nn.Sequential(
-                    nn.Linear(sentence_input_size, sentence_input_size // 2),
-                    nn.Sigmoid(),
-                    nn.Linear(sentence_input_size // 2, sentence_input_size // 4),
-                    nn.Sigmoid(),
-                    nn.Linear(sentence_input_size // 4, 1),
-                )
+            if self.config.visual_strategy == 'last': # Multimodal version: last layer merging
+                if sefl.config.visual_method == 'conc':
+                    print('sentence_input_size:', sentence_input_size)
+                    self.sentence_pred = nn.Sequential(
+                        nn.Linear(sentence_input_size * 2, sentence_input_size // 2),
+                        nn.Sigmoid(),
+                        nn.Linear(sentence_input_size // 2, sentence_input_size // 4),
+                        nn.Sigmoid(),
+                        nn.Linear(sentence_input_size // 4, 1),
+                    )
+                else: # 'mult' visual method
+                    self.sentence_pred = nn.Sequential(
+                        nn.Linear(sentence_input_size, sentence_input_size // 2),
+                        nn.Sigmoid(),
+                        nn.Linear(sentence_input_size // 2, sentence_input_size // 4),
+                        nn.Sigmoid(),
+                        nn.Linear(sentence_input_size // 4, 1),
+                    )
             else:
                 self.sentence_pred = nn.Sequential(
                     nn.Linear(sentence_input_size, sentence_input_size // 2),
@@ -393,9 +405,14 @@ class EstimatorVis(Model):
         if self.config.sentence_level:
             #print('sentence_input', sentence_input.size())
             #print('input_visual_feature', self.input_visual_feature.size())
-            if self.config.last_layer: # If multimodality
-                sentence_input_last = sentence_input * reduced_visual_feature
-                outputs.update(self.predict_sentence(sentence_input))
+            if self.config.visual_strategy == 'last': # If last layer merging
+                if self.config.visual_method == 'mult':
+                    sentence_input_last = sentence_input * reduced_visual_feature
+                elif self.config.visual_method == 'conc':
+                    sentence_input_last = sentence_input + reduced_visual_feature
+                else:
+                    raise Exception('Unknown visual method.')
+                outputs.update(self.predict_sentence(sentence_input_last))
             else:
                 outputs.update(self.predict_sentence(sentence_input))
 
