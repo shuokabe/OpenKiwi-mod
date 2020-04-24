@@ -62,6 +62,8 @@ class EstimatorVisConfig(PredictorConfig):
         source_bad_weight=2.0,
         gaps_bad_weight=2.0,
         visual_feature_size=0,
+        visual_strategy='last',
+        visual_method='mult',
         **kwargs
     ):
         """Predictor Estimator Hyperparams.
@@ -350,7 +352,10 @@ class EstimatorVis(Model):
             target_embeddings_size=opts.target_embeddings_size,
             source_embeddings_size=opts.source_embeddings_size,
             out_embeddings_size=opts.out_embeddings_size,
-            predict_inverse=opts.predict_inverse#,
+            predict_inverse=opts.predict_inverse,
+            visual_strategy=opts.visual_strategy,
+            visual_method=opts.visual_method
+            #,
             #visual_feature_size=opts.visual_feature_size
         )
         return model
