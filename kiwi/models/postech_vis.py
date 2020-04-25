@@ -181,6 +181,11 @@ class EstimatorVis(Model):
             )
             self.lstm_input_size = self.config.hidden_est
 
+        self.reduced_visual = nn.Sequential(
+            nn.Linear(visual_feature_size, self.lstm_input_size),
+            nn.ReLU()
+        )
+
         self.lstm = nn.LSTM(
             input_size=self.lstm_input_size,
             hidden_size=self.config.hidden_est,
@@ -215,7 +220,7 @@ class EstimatorVis(Model):
         if self.config.sentence_level:
             if self.config.visual_strategy == 'last': # Multimodal version: last layer merging
                 # Visual features
-                self.reduced_visual = nn.Sequential(
+                self.reduced_visual_last = nn.Sequential(
                     nn.Linear(visual_feature_size, sentence_input_size),
                     nn.ReLU()
                 )
@@ -373,7 +378,7 @@ class EstimatorVis(Model):
         contexts_src, h_src = None, None
         input_visual_feature = batch.visual
         #print('batch visual:', input_visual_feature.size()) # Add
-        reduced_visual_feature = self.reduced_visual(input_visual_feature)
+        #reduced_visual_feature = self.reduced_visual_last(input_visual_feature)
         if (
             self.config.predict_target
             or self.config.predict_gaps
@@ -383,6 +388,18 @@ class EstimatorVis(Model):
             input_seq, target_lengths = self.make_input(
                 model_out_tgt, batch, const.TARGET_TAGS
             )
+
+            if self.config.visual_strategy == 'embed':
+                print('hidden_est = lstm_input_size:', self.lstm_input_size)
+                reduced_visual_feature = self.reduced_visual_embed(self.config.hidden_est)
+                if self.config.visual_method == 'mult':
+                    input_seq = input_seq * reduced_visual_feature
+                    #print('successulf last mult in forward', sentence_input_last.size())
+                elif self.config.visual_method == 'conc':
+                    input_seq = torch.cat((input_seq, reduced_visual_feature), 1)
+                    #print('successulf last conc in forward', sentence_input_last.size())
+                else:
+                    raise Exception('Unknown visual method.')
 
             contexts_tgt, h_tgt = apply_packed_sequence(
                 self.lstm, input_seq, target_lengths
@@ -418,11 +435,12 @@ class EstimatorVis(Model):
             #print('sentence_input', sentence_input.size())
             #print('input_visual_feature', self.input_visual_feature.size())
             if self.config.visual_strategy == 'last': # If last layer merging
+                reduced_visual_feature = self.reduced_visual_last(input_visual_feature)
                 if self.config.visual_method == 'mult':
                     sentence_input_last = sentence_input * reduced_visual_feature
                     #print('successulf last mult in forward', sentence_input_last.size())
                 elif self.config.visual_method == 'conc':
-                    sentence_input_last = torch.cat((sentence_input, reduced_visual_feature), 1) #sentence_input + reduced_visual_feature
+                    sentence_input_last = torch.cat((sentence_input, reduced_visual_feature), 1)
                     #print('successulf last conc in forward', sentence_input_last.size())
                 else:
                     raise Exception('Unknown visual method.')
