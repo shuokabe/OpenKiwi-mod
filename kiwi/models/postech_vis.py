@@ -393,6 +393,8 @@ class EstimatorVis(Model):
                 print('hidden_est = lstm_input_size:', self.lstm_input_size)
                 reduced_visual_feature = self.reduced_visual_embed(input_visual_feature)
                 if self.config.visual_method == 'mult':
+                    print('input_seq size:', input_seq.size())
+                    print('reduced_visual_feature:', reduced_visual_feature.size())
                     input_seq = input_seq * reduced_visual_feature
                     #print('successulf last mult in forward', sentence_input_last.size())
                 elif self.config.visual_method == 'conc':
