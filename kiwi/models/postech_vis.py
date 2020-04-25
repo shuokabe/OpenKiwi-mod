@@ -392,7 +392,7 @@ class EstimatorVis(Model):
             if self.config.visual_strategy == 'embed':
                 print('hidden_est = lstm_input_size:', self.lstm_input_size)
                 reduced_visual_feature = self.reduced_visual_embed(input_visual_feature)
-                reshaped_visual_feature = visual_feature_reshape(reduced_visual_feature, input_seq.size()[1])
+                reshaped_visual_feature = self.visual_feature_reshape(reduced_visual_feature, input_seq.size()[1])
                 if self.config.visual_method == 'mult':
                     print('input_seq size:', input_seq.size())
                     print('reshaped_visual_feature:', reshaped_visual_feature.size())
