@@ -392,14 +392,15 @@ class EstimatorVis(Model):
             if self.config.visual_strategy == 'embed':
                 print('hidden_est = lstm_input_size:', self.lstm_input_size)
                 reduced_visual_feature = self.reduced_visual_embed(input_visual_feature)
+                reshaped_visual_feature = visual_feature_reshape(reduced_visual_feature, input_seq.size()[1])
                 if self.config.visual_method == 'mult':
                     print('input_seq size:', input_seq.size())
-                    print('reduced_visual_feature:', reduced_visual_feature.size())
-                    input_seq = input_seq * reduced_visual_feature
+                    print('reshaped_visual_feature:', reshaped_visual_feature.size())
+                    input_seq = input_seq * reshaped_visual_feature
                     #print('successulf last mult in forward', sentence_input_last.size())
                 elif self.config.visual_method == 'conc':
-                    input_seq = torch.cat((input_seq, reduced_visual_feature), 1)
-                    #print('successulf last conc in forward', sentence_input_last.size())
+                    input_seq = torch.cat((input_seq, reshaped_visual_feature), 1)
+                    print('successulf last conc in forward', input_seq.size())
                 else:
                     raise Exception('Unknown visual method.')
 
@@ -742,3 +743,14 @@ class EstimatorVis(Model):
 
     def metrics_ordering(self):
         return max
+
+
+    # Reshaping visual features
+    def visual_feature_reshape(self, visual_feature_input, size):
+        a = torch.unsqueeze(visual_feature_input, 1)
+        print('size unsqueeze:', a.size())
+        print('unsqueezed:', a)
+        reshaped = a.repeat((1, size, 1))
+        print('size repeated:', reshaped.size())
+        print('reshaped:', reshaped)
+        return reshaped
