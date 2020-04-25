@@ -181,7 +181,7 @@ class EstimatorVis(Model):
             )
             self.lstm_input_size = self.config.hidden_est
 
-        self.reduced_visual = nn.Sequential(
+        self.reduced_visual_embed = nn.Sequential(
             nn.Linear(visual_feature_size, self.lstm_input_size),
             nn.ReLU()
         )
