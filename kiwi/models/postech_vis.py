@@ -390,12 +390,12 @@ class EstimatorVis(Model):
             )
 
             if self.config.visual_strategy == 'embed':
-                print('hidden_est = lstm_input_size:', self.lstm_input_size)
+                #print('hidden_est = lstm_input_size:', self.lstm_input_size)
                 reduced_visual_feature = self.reduced_visual_embed(input_visual_feature)
                 reshaped_visual_feature = self.visual_feature_reshape(reduced_visual_feature, input_seq.size()[1])
                 if self.config.visual_method == 'mult':
-                    print('input_seq size:', input_seq.size())
-                    print('reshaped_visual_feature:', reshaped_visual_feature.size())
+                    #print('input_seq size:', input_seq.size())
+                    #print('reshaped_visual_feature:', reshaped_visual_feature.size())
                     input_seq = input_seq * reshaped_visual_feature
                     #print('successulf last mult in forward', sentence_input_last.size())
                 elif self.config.visual_method == 'conc':
@@ -748,9 +748,9 @@ class EstimatorVis(Model):
     # Reshaping visual features
     def visual_feature_reshape(self, visual_feature_input, size):
         a = torch.unsqueeze(visual_feature_input, 1)
-        print('size unsqueeze:', a.size())
-        print('unsqueezed:', a)
+        #print('size unsqueeze:', a.size())
+        #print('unsqueezed:', a)
         reshaped = a.repeat((1, size, 1))
-        print('size repeated:', reshaped.size())
-        print('reshaped:', reshaped)
+        #print('size repeated:', reshaped.size())
+        #print('reshaped:', reshaped)
         return reshaped
