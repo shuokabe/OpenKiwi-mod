@@ -397,7 +397,7 @@ class EstimatorVis(Model):
                     #print('input_seq size:', input_seq.size())
                     #print('reshaped_visual_feature:', reshaped_visual_feature.size())
                     input_seq = input_seq * reshaped_visual_feature
-                    #print('successulf last mult in forward', sentence_input_last.size())
+                    print('successulf last mult in forward', input_seq.size())
                 elif self.config.visual_method == 'conc':
                     input_seq = torch.cat((input_seq, reshaped_visual_feature), 1)
                     print('successulf last conc in forward', input_seq.size())
